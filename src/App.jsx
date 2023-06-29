@@ -15,12 +15,12 @@ function App() {
       <Header />
 
       <div>
-        <Link href="/items/1">
+        <Link href="/">
           <a className="link">Top Stories</a>
         </Link>
         <Suspense fallback="Loading...">
           <Route path="/" component={TopStoriesPage} />
-          <Route path="/items/:id" component={DetailPage} />
+          <Route path="/article/:id" component={DetailPage} />
         </Suspense>
       </div>
     </>
