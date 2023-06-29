@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css"
 
 export const story = style({
   color: "#f6f6f6",
-  marginBottom: "15px",
+  marginBottom: "18px",
   borderBottom: "1px solid gray",
   paddingBottom: "6px",
 })
@@ -31,6 +31,14 @@ export const storyFooter = style({
 
 export const storyLink = style({
   color: "#888",
+  textDecoration: "none",
+  ":hover": {
+    textDecoration: "underline",
+  },
+})
+export const storyComment = style({
+  color: "lightblue",
+  fontSize: "1rem",
   textDecoration: "none",
   ":hover": {
     textDecoration: "underline",

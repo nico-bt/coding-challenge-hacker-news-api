@@ -18,7 +18,7 @@ function TopStoriesPage() {
 
   if (error) return <div>failed to load</div>
 
-  if (isLoading) return <div>loading...</div>
+  if (isLoading) return <div>Loading...</div>
 
   return (
     <div>
