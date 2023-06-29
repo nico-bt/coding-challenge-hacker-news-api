@@ -8,9 +8,6 @@ export const getTopStories = async ({ page, limit }) => {
   const ids = json.slice(startIndex, endIndex)
 
   return ids
-
-  // junior dev tip: use Promise.all to fetch multiple items in parallel
-  // return await Promise.all(ids.map((id: number) => getItemInfo(id)))
 }
 
 export const getItemInfo = async (id) => {
