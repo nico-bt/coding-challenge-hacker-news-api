@@ -1,16 +1,11 @@
 import { getItemInfo } from "../services/hacker-news-getData"
 import useSWR from "swr"
-import { useEffect } from "react"
 import { storyLink, story, storyFooter, storyHeader, storyTitle, storyComment } from "./Story.css"
 import { Link } from "wouter"
 import SkeletonLoader from "./SkeletonLoader"
 
 function Story({ id, index }) {
   const { data, isLoading, error } = useSWR(`story/${id}`, () => getItemInfo(id))
-
-  //   useEffect(() => {
-  //     console.log(data)
-  //   }, [data])
 
   if (error) return <article>failed to load</article>
 
