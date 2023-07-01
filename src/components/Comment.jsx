@@ -4,15 +4,19 @@ import SkeletonLoader from "../components/SkeletonLoader"
 
 function Comment({ kidId }) {
   const { data, isLoading, error } = useSWR(`item/${kidId}`, () => getItemInfo(kidId))
-  console.log(data)
 
   if (error) return <div>{error.message}</div>
 
   if (isLoading) return <SkeletonLoader />
 
   return (
-    <li>
-      {data?.text}
+    <details open>
+      <summary>
+        <span>By: {data.by} </span>
+        <span> {data.time} ago</span>
+      </summary>
+
+      <p style={{ marginTop: 4, paddingLeft: 16 }}>{data.text}</p>
 
       {data.kids?.length > 0 && (
         <ul>
@@ -21,7 +25,7 @@ function Comment({ kidId }) {
           ))}
         </ul>
       )}
-    </li>
+    </details>
   )
 }
 
