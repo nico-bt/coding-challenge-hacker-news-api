@@ -4,6 +4,7 @@ Prueba técnica sacada del canal Midudev.
 Items útiles vistos:
 - SWR para fetching API: ```const { data, error, isLoading } = useSWR("key", funcToGetData)```
 - Skeleton loader
+- Relative time function: ver ```getRelativeTime()``` en helper
 
 ## Enunciado
 
