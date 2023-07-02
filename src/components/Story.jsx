@@ -3,6 +3,7 @@ import useSWR from "swr"
 import { storyLink, story, storyFooter, storyHeader, storyTitle, storyComment } from "./Story.css"
 import { Link } from "wouter"
 import SkeletonLoader from "./SkeletonLoader"
+import { getRelativeTime } from "../helper/getRelativeTime"
 
 function Story({ id, index }) {
   const { data, isLoading, error } = useSWR(`story/${id}`, () => getItemInfo(id))
@@ -27,9 +28,7 @@ function Story({ id, index }) {
           by {data.by}
         </Link>
 
-        {/* <Link className={storyLink} href={`/article/${id}`}>
-          <time dateTime={new Date(time * 1000).toISOString()}>{relativeTime}</time>
-        </Link> */}
+        <time>{getRelativeTime(data.time)}</time>
 
         <Link className={storyComment} href={`/article/${id}`}>
           {data.descendants ?? 0} comments

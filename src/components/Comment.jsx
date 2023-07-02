@@ -1,6 +1,7 @@
 import useSWR from "swr"
 import { getItemInfo } from "../services/hacker-news-getData"
 import SkeletonLoader from "../components/SkeletonLoader"
+import { getRelativeTime } from "../helper/getRelativeTime"
 
 function Comment({ kidId }) {
   const { data, isLoading, error } = useSWR(`item/${kidId}`, () => getItemInfo(kidId))
@@ -13,7 +14,7 @@ function Comment({ kidId }) {
     <details open>
       <summary>
         <span>By: {data.by} </span>
-        <span> {data.time} ago</span>
+        <span> {getRelativeTime(data.time)}</span>
       </summary>
 
       <p style={{ marginTop: 4, paddingLeft: 16 }}>{data.text}</p>
